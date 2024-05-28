@@ -1,0 +1,74 @@
+ba_2motifs:
+  groundtruth: "True"
+  graph_classification: "True"
+  num_layers: 3
+  hidden_dim: 20
+  num_epochs: 300
+  lr: 0.001
+  weight_decay: 0.0000
+  dropout: 0.0
+  readout: "max"
+  batch_size: 200
+  unseen: "False"
+
+uk:
+  groundtruth: "True"
+  graph_classification: "True"
+  num_layers: 3
+  hidden_dim: 32
+  num_epochs: 200
+  lr: 0.001
+  weight_decay: 0.0000
+  dropout: 0.0
+  readout: "max"
+  batch_size: 128
+  gamma: 0.5
+  milestones: [70, 90, 120, 170]
+  num_early_stop: 50
+  unseen: "False"
+
+ieee24:
+  groundtruth: "True"
+  graph_classification: "True"
+  num_layers: 3
+  hidden_dim: 32
+  num_epochs: 200
+  lr: 0.001
+  weight_decay: 0.0000
+  dropout: 0.0
+  readout: "max"
+  batch_size: 128
+  gamma: 0.5
+  milestones: [70, 90, 120, 170]
+  num_early_stop: 50
+  unseen: "False"
+
+ieee39:
+  groundtruth: "True"
+  graph_classification: "True"
+  num_layers: 3
+  hidden_dim: 32
+  num_epochs: 100
+  lr: 0.001
+  weight_decay: 0.0000
+  dropout: 0.0
+  readout: "max"
+  batch_size: 128
+  gamma: 0.1
+  milestones: [30, 50, 75]
+  unseen: "False"
+
+ieee118:
+  groundtruth: "True"
+  graph_classification: "True"
+  num_layers: 3
+  hidden_dim: 32
+  num_epochs: 100
+  lr: 0.001
+  weight_decay: 0.0000
+  dropout: 0.0
+  readout: "max"
+  batch_size: 128
+  gamma: 0.1
+  milestones: [30, 50, 75]
+  unseen: "False"
