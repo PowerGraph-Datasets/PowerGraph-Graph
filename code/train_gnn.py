@@ -549,10 +549,10 @@ if __name__ == "__main__":
     args = get_graph_size_args(args)
 
     # for loop the training architecture for the number of layers and hidden dimensions
-    rnd_seeds = [0]
-    tasks = ['regression'] #, 'r
-    powergrids = ['uk']  # , 'ieee39']
-    models = ['gat'] #, 'gcn', 'gin', 'transformer']
+    rnd_seeds = [0, 100, 300, 700, 1000]
+    tasks = ['regression', 'binary', 'multiclass']
+    powergrids = ['ieee24', 'uk', 'ieee39', 'ieee118']
+    models = ['gat', 'gcn', 'gin', 'transformer']
     for powergrid in powergrids:
         args.dataset_name = powergrid
         for task in tasks:
@@ -571,4 +571,4 @@ if __name__ == "__main__":
 
         print("CHANGE POWERGRID")
 
-    print("END FULL COMPLETE BENCHMARKING OF POWERGRAPH")
+    print("END TRAINING OF POWERGRAPH")
