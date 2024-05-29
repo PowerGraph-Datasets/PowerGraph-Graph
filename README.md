@@ -19,10 +19,10 @@ pip install -r requirements.txt
 
 ## Prerequisites and data structure
 
-To reproduce the results presented in the paper, download the following compressed data from [here](https://figshare.com/articles/dataset/PowerGraph/22820534) (~1.8GB, when uncompressed):
+To reproduce the results presented in the paper, download the following compressed data from [here](https://figshare.com/articles/dataset/PowerGraph/22820534?file=46619158) (~2.7GB, when uncompressed):
 
 ```bash
-wget -O data.tar.gz "https://figshare.com/ndownloader/files/40571123"
+wget -O data.tar.gz "https://figshare.com/ndownloader/files/46619158"
 tar -xf data.tar.gz
 ```
 
@@ -40,7 +40,6 @@ Each dataset folder contains the following files:
 
 | Dataset    |     Name     | Description                    |
 | ---------- | :----------: | ------------------------------ |
-| BA-2motifs | `ba_2motifs` | Random BA graph with 2 motifs. |
 | IEEE-24    |   `ieee24`   | IEEE-24 (Powergrid dataset)    |
 | IEEE-39    |   `ieee39`   | IEEE-39 (Powergrid dataset)    |
 | IEEE-118   |  `ieee118`   | IEEE-118 (Powergrid dataset)   |
@@ -58,13 +57,12 @@ python code/train_gnn.py
 
 We have the main arguments to control namely
 
-**--model_name**: transformer / gin / gat
+**--model_name**: transformer / gin / gat/ gcn
 
 **--datatype**: binary / multiclass / regression
 
-**--dataset_name**: uk / ieee24 / ieee39
+**--dataset_name**: uk / ieee24 / ieee39 / ieee118
 
-We do not use GCN model for the PowerGraph datasets since the graphs have edge attributes that carry meaningful information and should be used by the GNN model for prediction.
 
 Make sure you have the dataset as per format. Models will be saved as per format (make sure you have the model folder)
 
@@ -79,45 +77,13 @@ Make sure you have the dataset as per format. Models will be saved as per format
 | ├──ieee24
 | ├──ieee39
 | ├──uk
+| ├──ieee118
 ```
 
 Remove the for loop in train_gnn.py if running for a specific **--hidden_dim** and **num_layers**.
 
 The models will be saved in **model** directory
 
-## GNN Explainability Benchmarking
-
-**Graph Classification Tasks**
-
-| Explainer            | Paper                                                                                                                       |
-| :------------------- | :-------------------------------------------------------------------------------------------------------------------------- |
-| Occlusion            | [Visualizing and understanding convolutional networks](https://arxiv.org/pdf/1311.2901.pdf)                                 |
-| SA                   | [Explainability Techniques for Graph Convolutional Networks](https://arxiv.org/pdf/1905.13686.pdf)                          |
-| Grad-CAM             | [Grad-CAM: Visual Explanations from Deep Networks via Gradient-based Localization](https://arxiv.org/pdf/1610.02391.pdf)    |
-| Integrated Gradients | [Axiomatic Attribution for Deep Networks](https://arxiv.org/pdf/1703.01365.pdf)                                             |
-| GNNExplainer         | [GNNExplainer: Generating Explanations for Graph Neural Networks](https://arxiv.org/pdf/1903.03894.pdf)                     |
-| SubgraphX            | [On Explainability of Graph Neural Networks via Subgraph Exploration](https://arxiv.org/pdf/2102.05152.pdf)                 |
-| PGM-Explainer        | [PGM-Explainer: Probabilistic Graphical Model Explanations for Graph Neural Networks](https://arxiv.org/pdf/2010.05788.pdf) |
-
-**Run explainability methods**
-
-```bash
-python3 code/main.py --dataset_name [dataset-name] --model_name [gnn-model] --explainer_name [explainer-name]
-```
-
-We have the main arguments to control namely
-
-**--model_name**: transformer / gin / gat
-
-**--datatype**: multiclass
-
-**--dataset_name**: uk_mc / ieee24_mc / ieee39_mc
-
-**--explainer_name**: random / sa / ig / gradcam / occlusion / basic_gnnexplainer / gnnexplainer / subgraphx / pgmexplainer / pgexplainer / graphcfe
-
-Default args:
-
-**--explained_target**: 0 - Only Category A powergrids are explained (DNS>0 and Cascading failure)
 
 ## License
 
