@@ -1,3 +1,4 @@
+# PowerGraph-graph
 # Benchmarking GNN datasets for PowerGrids- graph-level tasks
 
 Traditional methods for simulating cascading failures in power grids are computationally expensive and use historical blackout datasets that are scarce and incomplete. To address this limitation, we propose to use machine learning models, specifically Graph Neural Networks (GNNs), to instantly detect cascading failures from the pre-outage state of the system. The lack of publicly available GNN datasets for power grid applications has motivated us to develop a new graph dataset. This dataset, designed for graph-level tasks and ranging in size from small to medium, fills a gap in the OGB taxonomy for graph datasets. It is tailored to the society domain, where no public GNN graph property prediction datasets are currently available. Furthermore, we provide explainability masks. Currently, no real graph dataset for graph-level application can be used to benchmark explainability models.
