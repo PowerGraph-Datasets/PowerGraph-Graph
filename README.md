@@ -30,12 +30,12 @@ tar -xf data.tar.gz
 Each dataset folder contains the following files:
 
 - `blist.mat`: branch list also called edge order or edge index
-- `of_bi.mat`: binary classification labels
-- `of_reg.mat`: regression labels
-- `of_mc.mat`: multi-class labels
-- `Bf.mat`: node feature matrix
-- `Ef.mat`: edge feature matrix
-- `exp.mat`: groundtruth explanation
+- `of_bi.mat`: binary classification labels ($DNS=0$ or  $DNS\neq0$) 
+- `of_reg.mat`: regression labels ($DNS$)
+- `of_mc.mat`: multi-class labels (see Table 3 in 'PowerGraph: A power grid benchmark dataset for graph neural networks')
+- `Bf.mat`: node feature matrix  (Net active power at bus $P_{net}$, Net apparent power at bus $S_{net}$, Voltage magnitude $V$)
+- `Ef.mat`: edge feature matrix (Active power flow $P_{i,j}$, Reactive power flow $Q_{i,j}$, Line reactance $X_{i,j}$, Line rating $lr_{i,j}$)
+- `exp.mat`: groundtruth explanation (boolean vector assigning value 1 to edges that have undergone the cascading failure)
 
 ## Dataset description
 
